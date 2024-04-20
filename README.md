@@ -7,7 +7,6 @@ In parts based on:
 - https://www.chrisportela.com/posts/home-manager-flake/
 - https://github.com/chrisportela/dotfiles/tree/main
 
-## Problems
+## Next
 
-- nixgl find a better solution
-- zsh large config we might have to just import it.
+- nixgl for gui programs
