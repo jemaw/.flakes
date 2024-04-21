@@ -26,7 +26,7 @@ in
     neofetch
     ncdu
     evcxr
-    ueberzugpp  # image display in terminals
+    ueberzugpp # image display in terminals
 
     # programs
     nixvim-config
