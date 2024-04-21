@@ -1,7 +1,7 @@
-  let
-    user = "jm.wanka";
-    mail = user + "@gmail.com";
-  in 
+let
+  user = "jm.wanka";
+  mail = user + "@gmail.com";
+in
 {
 
   imports = [
@@ -17,7 +17,6 @@
     };
   };
   programs.fish.enable = true;
-  programs.yazi.enable = true;
   programs.yt-dlp.enable = true;
   programs.direnv = {
     enable = true;
@@ -37,6 +36,17 @@
     userName = "Jean Wanka";
     delta.options = {
       side-by-side = true;
+    };
+  };
+
+  programs.yazi = {
+    enable = true;
+    enableZshIntegration = true;
+    settings = {
+      manager = {
+        sort_by = "natural";
+        sort_dir_first = true;
+      };
     };
   };
 

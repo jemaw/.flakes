@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, nixvim-config, ... }:
 let
   username = "jean";
 in
@@ -25,9 +25,11 @@ in
     btop
     neofetch
     ncdu
+    evcxr
+    ueberzugpp  # image display in terminals
 
     # programs
-    nixvim
+    nixvim-config
 
     # TODO get berkeley mono at some point
     dejavu_fonts
