@@ -19,6 +19,12 @@ in
     beautysh
     shellcheck
 
+    # languages
+    micromamba
+    pipx
+    rustup
+    zig
+
     # cli tools
     cowsay
     ripgrep
