@@ -9,14 +9,19 @@
     nixgl.url = "github:nix-community/nixGL";
   };
 
-  outputs = inputs@{ nixpkgs, home-manager, nixgl, nixvim-config, ... }:
+  outputs =
+    inputs@{
+      nixpkgs,
+      home-manager,
+      nixgl,
+      nixvim-config,
+      ...
+    }:
     let
       system = "x86_64-linux";
       pkgs = import nixpkgs {
         inherit system;
-        overlays = [
-          nixgl.overlay
-        ];
+        overlays = [ nixgl.overlay ];
         config.allowUnfree = true;
       };
     in
@@ -26,7 +31,10 @@
 
       homeConfigurations.jean = home-manager.lib.homeManagerConfiguration {
         inherit pkgs;
-        modules = [ ./home.nix ./nixgl_pkgs.nix ];
+        modules = [
+          ./home.nix
+          ./nixgl_pkgs.nix
+        ];
         extraSpecialArgs = {
           nixvim-config = inputs.nixvim-config.packages.${system}.default;
         };

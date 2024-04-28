@@ -16,7 +16,6 @@ in
     # misc
     nixpkgs-fmt
     nixfmt-rfc-style
-    nix
     wget
     beautysh
     shellcheck
@@ -43,8 +42,12 @@ in
     # TODO get berkeley mono at some point
     dejavu_fonts
     source-serif-pro
-    (nerdfonts.override { fonts = [ "FiraCode" "DroidSansMono" "IBMPlexMono" ]; })
+    (nerdfonts.override {
+      fonts = [
+        "FiraCode"
+        "DroidSansMono"
+        "IBMPlexMono"
+      ];
+    })
   ];
-
-
 }

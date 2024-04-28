@@ -6,9 +6,12 @@
 # home-manager switch --impure --flake .  
 
 let
-  glWrap = (pkg: name: pkgs.writeShellScriptBin "${name}" ''
-    ${pkgs.nixgl.auto.nixGLDefault}/bin/nixGL ${pkg}/bin/${name} "$@"
-  '');
+  glWrap = (
+    pkg: name:
+    pkgs.writeShellScriptBin "${name}" ''
+      ${pkgs.nixgl.auto.nixGLDefault}/bin/nixGL ${pkg}/bin/${name} "$@"
+    ''
+  );
 in
 {
 

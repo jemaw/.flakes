@@ -54,6 +54,4 @@ in
   # things that don't work yet
   # TODO: find good way with nixgl
   programs.rofi.enable = true;
-
-
 }
