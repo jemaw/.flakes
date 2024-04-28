@@ -15,6 +15,8 @@ in
   home.packages = with pkgs; [
     # misc
     nixpkgs-fmt
+    nixfmt-rfc-style
+    nix
     wget
     beautysh
     shellcheck
