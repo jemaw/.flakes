@@ -26,6 +26,7 @@ in
     zig
 
     # cli tools
+    nix-output-monitor
     cowsay
     ripgrep
     btop

@@ -7,6 +7,7 @@ in
   imports = [
     ./tmux.nix
     ./zsh
+    ./alacritty.nix
   ];
 
   programs.home-manager.enable = true;
@@ -52,8 +53,7 @@ in
 
   # things that don't work yet
   # TODO: find good way with nixgl
-  # imports = [ ./alacritty.nix ];
-  programs.rofi.enable = false; # needs nixgl (probably)
+  programs.rofi.enable = true;
 
 
 }
