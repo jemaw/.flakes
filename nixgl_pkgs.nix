@@ -20,5 +20,4 @@ in
     alacritty.package = (glWrap pkgs.alacritty "alacritty");
     rofi.package = (glWrap pkgs.rofi "rofi");
   };
-  wayland.windowManager.hyprland.package = (glWrap pkgs.hyprland "Hyprland");
 }

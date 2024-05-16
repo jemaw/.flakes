@@ -19,6 +19,7 @@ in
     wget
     beautysh
     shellcheck
+    nixgl.auto.nixGLDefault
 
     # languages
     micromamba
