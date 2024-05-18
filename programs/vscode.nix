@@ -132,6 +132,7 @@
       "vim.handleKeys" = {
         "<C-a>" = false;
         "<C-f>" = false;
+        "<C-p>" = false;
       };
     };
     keybindings = [
