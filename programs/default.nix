@@ -8,6 +8,7 @@ in
     ./tmux.nix
     ./zsh
     ./alacritty.nix
+    ./vscode.nix
   ];
 
   programs.home-manager.enable = true;
@@ -51,7 +52,5 @@ in
     };
   };
 
-  # things that don't work yet
-  # TODO: find good way with nixgl
   programs.rofi.enable = true;
 }

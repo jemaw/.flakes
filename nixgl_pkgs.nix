@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, stdenv, ... }:
 
 # for non NixOS setups nixGL wraps graphical programs
 # implementation based on: https://github.com/alexisquintero/nix/blob/master/nixgl/pkgs.nix
@@ -8,10 +8,15 @@
 let
   glWrap = (
     pkg: name:
-    pkgs.writeShellScriptBin "${name}" ''
-      ${pkgs.nixgl.auto.nixGLDefault}/bin/nixGL ${pkg}/bin/${name} "$@"
-    ''
+      pkgs.writeShellScriptBin "${name}" ''
+        ${pkgs.nixgl.auto.nixGLDefault}/bin/nixGL ${pkg}/bin/${name} "$@"
+      ''
   );
+  wrapped_vscode = glWrap pkgs.vscode "code" // {
+    pname = pkgs.vscode.pname;
+    version = pkgs.vscode.version;
+  };
+
 in
 {
 
@@ -19,5 +24,6 @@ in
     kitty.package = (glWrap pkgs.kitty "kitty");
     alacritty.package = (glWrap pkgs.alacritty "alacritty");
     rofi.package = (glWrap pkgs.rofi "rofi");
+    vscode.package = wrapped_vscode;
   };
 }

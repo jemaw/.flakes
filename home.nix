@@ -1,4 +1,4 @@
-{ pkgs, nixvim-config, ... }:
+{ pkgs, nixvim-config, vscode-extensions, ... }:
 let
   username = "jean";
 in

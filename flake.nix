@@ -3,6 +3,8 @@
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixpkgs-unstable";
+    nix-vscode-extensions.url = "github:nix-community/nix-vscode-extensions";
+    nix-vscode-extensions.inputs.nixpkgs.follows = "nixpkgs";
     home-manager.url = "github:nix-community/home-manager";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
     nixvim-config.url = "github:jemaw/nixvim-config";
@@ -37,6 +39,7 @@
         ];
         extraSpecialArgs = {
           nixvim-config = inputs.nixvim-config.packages.${system}.default;
+          vscode-extensions = inputs.nix-vscode-extensions.extensions.${system};
         };
       };
     };
