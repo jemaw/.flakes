@@ -17,7 +17,7 @@
       vscode-marketplace.tamasfe.even-better-toml
       vscode-marketplace.vscodevim.vim
       vscode-marketplace.yzhang.markdown-all-in-one
-      vscode-marketplace.ziglang.zig
+      vscode-marketplace.ziglang.vscode-zig
     ];
     userSettings = {
       "window.menuBarVisibility" = "toggle";
