@@ -26,6 +26,7 @@
       "vim.useSystemClipboard" = true;
       "vim.useCtrlKeys" = true;
       "vim.hlsearch" = true;
+      "terminal.integrated.fontFamily" = "Blex Mono Nerd Font";
       "vim.insertModeKeyBindings" = [
         {
           "before" = [

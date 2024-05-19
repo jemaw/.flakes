@@ -4,7 +4,6 @@
     dotDir = ".config/zsh";
     enableCompletion = true;
 
-    history.path = "~/.zhistory";
     history.size = 100000;
 
     initExtra = ''

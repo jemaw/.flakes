@@ -63,10 +63,6 @@ DIRSTACKSIZE=5
 setopt histignorealldups
 setopt INC_APPEND_HISTORY
 
-HISTFILE=~/.zhistory
-HISTSIZE=100000
-SAVEHIST=100000
-
 # }}}
 
 # completion {{{
