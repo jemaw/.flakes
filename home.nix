@@ -1,4 +1,4 @@
-{ pkgs, nixvim-config, vscode-extensions, ... }:
+{ pkgs, nixvim-config, ... }:
 let
   username = "jean";
 in
@@ -21,6 +21,10 @@ in
     shellcheck
     nixgl.auto.nixGLDefault
 
+    # scripts
+    (writeShellScriptBin "scrotc"
+      (builtins.readFile ./scripts/scrotc.sh))
+
     # languages
     micromamba
     pipx
@@ -36,6 +40,8 @@ in
     ncdu
     evcxr
     ueberzugpp # image display in terminals
+    scrot
+    xclip
 
     # programs
     nixvim-config
