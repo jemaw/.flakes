@@ -11,6 +11,18 @@ in
   # programs with config inside home-manager
   imports = [ ./programs ];
 
+  xsession.windowManager.xmonad = {
+    enable = true;
+    enableContribAndExtras = true;
+    config = pkgs.writeText "xmonad.hs" ''
+      import XMonad
+      main = xmonad defaultConfig
+          { terminal    = "alacritty"
+          , modMask     = mod4Mask
+          , borderWidth = 3
+          }
+    '';
+  };
   # normal packages installed via nix
   home.packages = with pkgs; [
     # misc
@@ -45,6 +57,8 @@ in
 
     # programs
     nixvim-config
+    # i3lock somehow does not accept correct passowrds
+
 
     # TODO get berkeley mono at some point
     dejavu_fonts
@@ -58,3 +72,6 @@ in
     })
   ];
 }
+
+
+

@@ -1,4 +1,4 @@
-{ pkgs, stdenv, ... }:
+{ pkgs, ... }:
 
 # for non NixOS setups nixGL wraps graphical programs
 # implementation based on: https://github.com/alexisquintero/nix/blob/master/nixgl/pkgs.nix
