@@ -1,24 +1,8 @@
 { pkgs, nixvim-config, ... }:
 let
   username = "jean";
-  # lain = pkgs.fetchFromGitHub {
-  #   owner = "lcpz";
-  #   repo = "lain";
-  #   rev = "88f5a8abd2649b348ffec433a24a263b37f122c0";
-  #   hash = "sha256-MH/aiYfcO3lrcuNbnIu4QHqPq25LwzTprOhEJUJBJ7I=";
-  # };
-  # teleporter = pkgs.fetchFromGitHub {
-  #   owner = "jemaw";
-  #   repo = "hand-tiler";
-  #   rev = "c1dc157f56e8dbb0f75d1aefa3d64e7d87afdf24";
-  #   hash = "sha256-5DTY/WCZ4zCz1Cc/moJCyP5NEizf0f+0aA3tWUs49QA=";
-  # };
-  # copycats = pkgs.fetchFromGitHub {
-  #   owner = "lcpz";
-  #   repo = "awesome-copycats";
-  #   rev = "16c16bb16eb1f2d272d6bd85872a05c8c958aeb6";
-  #   hash = "sha256-8CGjbUpfyj2eOu+r87gyOG03FBtY4tvUgMwCl9ohT9E=";
-  # };
+  user = "jm.wanka";
+  mail = user + "@gmail.com";
 in
 {
   home.username = "${username}";
@@ -28,7 +12,13 @@ in
   fonts.fontconfig.enable = true;
 
   # programs with config inside home-manager
-  imports = [ ./programs ];
+  imports = [
+    ./programs/awesome
+    ./programs/tmux.nix
+    ./programs/zsh
+    ./programs/alacritty.nix
+    ./programs/vscode.nix
+  ];
 
   xsession.windowManager.xmonad = {
     enable = false;
@@ -87,7 +77,6 @@ in
     nixvim-config
     # i3lock somehow does not accept correct passowrds
 
-
     # TODO get berkeley mono at some point
     dejavu_fonts
     source-serif-pro
@@ -100,6 +89,51 @@ in
       ];
     })
   ];
+
+  programs = {
+    home-manager.enable = true;
+    starship = {
+      enable = false;
+      settings = {
+        add_newline = false;
+      };
+    };
+    fish.enable = true;
+    yt-dlp.enable = true;
+    direnv = {
+      enable = true;
+      nix-direnv.enable = true;
+    };
+    fzf.enable = true;
+    jq.enable = true;
+    bat.enable = true;
+    eza.enable = true;
+    htop.enable = true;
+    info.enable = true;
+    git = {
+      enable = true;
+      delta.enable = true;
+      lfs.enable = true;
+      userEmail = mail;
+      userName = "Jean Wanka";
+      delta.options = {
+        side-by-side = true;
+      };
+    };
+
+    yazi = {
+      enable = true;
+      enableZshIntegration = true;
+      settings = {
+        manager = {
+          sort_by = "natural";
+          sort_dir_first = true;
+        };
+      };
+    };
+
+    rofi.enable = true;
+  };
 }
 
 
