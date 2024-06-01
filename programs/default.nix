@@ -5,6 +5,7 @@ in
 {
 
   imports = [
+    ./awesome
     ./tmux.nix
     ./zsh
     ./alacritty.nix
