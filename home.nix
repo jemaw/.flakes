@@ -23,14 +23,7 @@ in
   xsession.windowManager.xmonad = {
     enable = false;
     enableContribAndExtras = true;
-    config = pkgs.writeText "xmonad.hs" ''
-      import XMonad
-      main = xmonad defaultConfig
-          { terminal    = "alacritty"
-          , modMask     = mod4Mask
-          , borderWidth = 3
-          }
-    '';
+    config = ./programs/xmonad/xmonad.hs;
   };
 
   xsession.windowManager.awesome = {
