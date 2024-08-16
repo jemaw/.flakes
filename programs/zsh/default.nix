@@ -19,7 +19,7 @@
     shellAliases = {
       # programs
       vi = "nvim";
-      ra = "ya";
+      ra = "yy";
       ag = "rg";
       cat = "bat";
       # python

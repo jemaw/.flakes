@@ -17,6 +17,10 @@ let
     version = pkgs.vscode.version;
   };
 
+  shellIntegrationStrwezterm = ''
+    source "${pkgs.wezterm}/etc/profile.d/wezterm.sh"
+  '';
+
 in
 {
 
@@ -25,5 +29,7 @@ in
     alacritty.package = (glWrap pkgs.alacritty "alacritty");
     rofi.package = (glWrap pkgs.rofi "rofi");
     vscode.package = wrapped_vscode;
+    wezterm.package = (glWrap pkgs.wezterm "wezterm");
+    zsh.initExtra = shellIntegrationStrwezterm;
   };
 }

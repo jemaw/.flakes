@@ -62,7 +62,6 @@ in
     neofetch
     ncdu
     evcxr
-    ueberzugpp # image display in terminals
     scrot
     xclip
 
@@ -105,7 +104,7 @@ in
     info.enable = true;
     git = {
       enable = true;
-      delta.enable = true;
+      # delta.enable = true;  # currently broken
       lfs.enable = true;
       userEmail = mail;
       userName = "Jean Wanka";
@@ -126,6 +125,23 @@ in
     };
 
     rofi.enable = true;
+    wezterm = {
+      enable = true;
+      enableZshIntegration = false;
+      extraConfig = ''
+        local wezterm = require 'wezterm'
+        config = wezterm.config_builder()
+        local mux = wezterm.mux
+        local act = wezterm.action
+        config.hide_tab_bar_if_only_one_tab = true
+        config.tab_bar_at_bottom = true
+        config.use_fancy_tab_bar = true
+        config.color_scheme = "Tomorrow Night"
+        config.front_end = "WebGpu"
+
+        return config
+      '';
+    };
   };
 }
 
