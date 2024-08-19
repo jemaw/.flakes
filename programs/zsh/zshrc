@@ -154,9 +154,10 @@ bindkey -M isearch " " magic-space    # normal space during searches
 
 # global aliases
 alias -g T='| tail'
-alias -g G='| rg'
+alias -g G='| rg -i'
 alias -g C='| wc -l'
 alias -g L='| less'
+alias -g H='--help | bat --language=help --style=plain'
 
 # }}}
 
