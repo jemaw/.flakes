@@ -122,6 +122,33 @@ in
           sort_dir_first = true;
         };
       };
+      keymap = {
+          manager.prepend_keymap = [
+            {
+              on = [ "g" "m" ];
+              run = "cd /media";
+              desc = "cd /media";
+            }
+
+            {
+              on = [ "g" "M" ];
+              run = "cd /mnt";
+              desc = "cd /mnt";
+            }
+
+            {
+              on = [ "g" "t" ];
+              run = "cd /tmp";
+              desc = "cd /tmp";
+            }
+
+            {
+              on = [ "g" "/" ];
+              run = "cd /";
+              desc = "cd /";
+            }
+          ];
+      };
     };
 
     rofi.enable = true;
