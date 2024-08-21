@@ -1,4 +1,4 @@
-{ pkgs, ... }: 
+{ pkgs, ... }:
 
 let
 
@@ -21,7 +21,7 @@ let
     hash = "sha256-8CGjbUpfyj2eOu+r87gyOG03FBtY4tvUgMwCl9ohT9E=";
   };
 
-in 
+in
 
 {
 

@@ -12,12 +12,11 @@
   };
 
   outputs =
-    inputs@{
-      nixpkgs,
-      home-manager,
-      nixgl,
-      nixvim-config,
-      ...
+    inputs@{ nixpkgs
+    , home-manager
+    , nixgl
+    , nixvim-config
+    , ...
     }:
     let
       system = "x86_64-linux";
