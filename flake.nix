@@ -2,7 +2,6 @@
   description = "Home Manager Dotfiles";
 
   inputs = {
-    nixpkgs.url = "github:nixos/nixpkgs/c49d0387e0b2ee9a53f5298eaaa6b2d37809962f";
     nix-vscode-extensions.url = "github:nix-community/nix-vscode-extensions";
     nix-vscode-extensions.inputs.nixpkgs.follows = "nixpkgs";
     home-manager.url = "github:nix-community/home-manager";

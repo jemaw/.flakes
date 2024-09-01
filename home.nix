@@ -21,13 +21,13 @@ in
   ];
 
   xsession.windowManager.xmonad = {
-    enable = false;
+    enable = true;
     enableContribAndExtras = true;
     config = ./programs/xmonad/xmonad.hs;
   };
 
   xsession.windowManager.awesome = {
-    enable = true;
+    enable = false;
     noArgb = true;
   };
 
@@ -104,7 +104,7 @@ in
     info.enable = true;
     git = {
       enable = true;
-      # delta.enable = true;  # currently broken
+      delta.enable = true;
       lfs.enable = true;
       userEmail = mail;
       userName = "Jean Wanka";
