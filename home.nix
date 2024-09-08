@@ -56,13 +56,14 @@ in
     zig
 
     # cli tools
-    nix-output-monitor
-    cowsay
-    ripgrep
     btop
-    neofetch
-    ncdu
+    cowsay
     evcxr
+    ncdu
+    neofetch
+    nix-output-monitor
+    ripgrep
+    silver-searcher
     scrot
     xclip
 

@@ -1,4 +1,3 @@
-# TODO kill
 # for profiling, also enable zprof at the end
 autoload -Uz edit-command-line vcs_info promptinit
 zmodload zsh/complist
@@ -6,35 +5,17 @@ zle -N edit-command-line
 
 # Paths {{{
 
-#go
-export GOPATH=$HOME/Prog/go
-
 #rust
-export RUST_SRC_PATH="$(rustc --print sysroot)/lib/rustlib/src/rust/src"
 export CARGO_BIN="$HOME/.cargo/bin"
 
 # Ensure path arrays do not contain duplicates.
 typeset -gU cdpath fpath mailpath path gopath
 
 # Cuda
-grep "Ubuntu" /etc/issue -i -q
-if [ $? = '0' ];
-then
-    export CUDA_HOME='/usr/local/cuda'
-    export CUDNN_HOME=$CUDA_HOME
-else
-    export CUDA_HOME='/opt/cuda'
-    export CUDNN_HOME=$CUDA_HOME
-fi
+export CUDA_HOME='/usr/local/cuda'
 
 # ld_library_path
 export LD_LIBRARY_PATH=$CUDNN_HOME/lib64:$CUDA_HOME/lib64:$CUDA_HOME/extras/CUPTI/lib64:$LD_LIBRARY_PATH
-
-# ml virtual env
-export ML_ENV='/mnt/data/virtualenvs/ml'
-
-# spark
-export SPARK_BIN='/opt/apache-spark/bin'
 
 # Set the list of directories that Zsh searches for programs.
 path=(
@@ -212,7 +193,5 @@ fda() {
 
 
 #}}}
-
-[ -f ~/.custom.zsh ] && source ~/.custom.zsh
 
 # vim: fdm=marker:fdl=0
