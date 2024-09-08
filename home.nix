@@ -41,6 +41,7 @@ in
     shellcheck
     nixgl.auto.nixGLDefault
     unclutter
+    zsh-completions
 
     # scripts
     (writeShellScriptBin "scrotc"

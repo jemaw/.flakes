@@ -3,8 +3,16 @@
     enable = true;
     dotDir = ".config/zsh";
     enableCompletion = true;
+    autocd = true;
+    autosuggestion.enable = true;
+    historySubstringSearch.enable = true;
+    syntaxHighlighting.enable = true;
 
-    history.size = 100000;
+    history = {
+      size = 100000;
+      append = true;
+      ignoreAllDups = true;
+    };
 
     initExtra = ''
       ${builtins.readFile ./zshrc}
@@ -15,6 +23,9 @@
     loginExtra = ''
       ${builtins.readFile ./zlogin}
     '';
+
+    plugins = [
+    ];
 
     shellAliases = {
       # programs
