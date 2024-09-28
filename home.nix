@@ -44,10 +44,8 @@ in
     zsh-completions
 
     # scripts
-    (writeShellScriptBin "scrotc"
-      (builtins.readFile ./scripts/scrotc.sh))
-    (writeShellScriptBin "slp"
-      (builtins.readFile ./scripts/slp.sh))
+    (writeShellScriptBin "scrotc" (builtins.readFile ./scripts/scrotc.sh))
+    (writeShellScriptBin "slp" (builtins.readFile ./scripts/slp.sh))
 
     # languages
     micromamba
@@ -127,25 +125,37 @@ in
       keymap = {
         manager.prepend_keymap = [
           {
-            on = [ "g" "m" ];
+            on = [
+              "g"
+              "m"
+            ];
             run = "cd /media";
             desc = "cd /media";
           }
 
           {
-            on = [ "g" "M" ];
+            on = [
+              "g"
+              "M"
+            ];
             run = "cd /mnt";
             desc = "cd /mnt";
           }
 
           {
-            on = [ "g" "t" ];
+            on = [
+              "g"
+              "t"
+            ];
             run = "cd /tmp";
             desc = "cd /tmp";
           }
 
           {
-            on = [ "g" "/" ];
+            on = [
+              "g"
+              "/"
+            ];
             run = "cd /";
             desc = "cd /";
           }
@@ -173,6 +183,3 @@ in
     };
   };
 }
-
-
-

@@ -8,9 +8,9 @@
 let
   glWrap = (
     pkg: name:
-      pkgs.writeShellScriptBin "${name}" ''
-        ${pkgs.nixgl.auto.nixGLDefault}/bin/nixGL ${pkg}/bin/${name} "$@"
-      ''
+    pkgs.writeShellScriptBin "${name}" ''
+      ${pkgs.nixgl.auto.nixGLDefault}/bin/nixGL ${pkg}/bin/${name} "$@"
+    ''
   );
   wrapped_vscode = glWrap pkgs.vscode "code" // {
     pname = pkgs.vscode.pname;

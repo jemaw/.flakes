@@ -24,8 +24,9 @@
       ${builtins.readFile ./zlogin}
     '';
 
-    plugins = [
-    ];
+    plugins =
+      [
+      ];
 
     shellAliases = {
       # programs

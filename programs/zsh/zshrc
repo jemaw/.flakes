@@ -11,19 +11,12 @@ export CARGO_BIN="$HOME/.cargo/bin"
 # Ensure path arrays do not contain duplicates.
 typeset -gU cdpath fpath mailpath path gopath
 
-# Cuda
-export CUDA_HOME='/usr/local/cuda'
-
-# ld_library_path
-export LD_LIBRARY_PATH=$CUDNN_HOME/lib64:$CUDA_HOME/lib64:$CUDA_HOME/extras/CUPTI/lib64:$LD_LIBRARY_PATH
-
 # Set the list of directories that Zsh searches for programs.
 path=(
     ~/bin
     ~/.local/bin
     /usr/local/{bin,sbin}
     $path
-    $CUDA_HOME/bin
     $GOPATH/bin
     $SPARK_BIN
     $CARGO_BIN
