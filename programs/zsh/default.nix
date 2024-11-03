@@ -7,6 +7,8 @@
     autosuggestion.enable = true;
     historySubstringSearch.enable = true;
     syntaxHighlighting.enable = true;
+    # enable for debugging startup time
+    # zprof.enable = true;
 
     history = {
       size = 100000;

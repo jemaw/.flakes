@@ -1,4 +1,3 @@
-# for profiling, also enable zprof at the end
 autoload -Uz edit-command-line vcs_info promptinit
 zmodload zsh/complist
 zle -N edit-command-line

@@ -52,6 +52,7 @@ in
     pipx
     rustup
     zig
+    uv
 
     # cli tools
     btop
