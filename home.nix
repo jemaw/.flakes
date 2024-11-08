@@ -38,85 +38,17 @@ in
   };
 
   # normal packages installed via nix
-  home.packages = with pkgs; [
-    # misc
-    nixpkgs-fmt
-    nixfmt-rfc-style
-    wget
-    beautysh
-    shellcheck
-    nixgl.auto.nixGLDefault
-    unclutter
-    zsh-completions
-
-    # scripts
-    (writeShellScriptBin "scrotc" (builtins.readFile ./scripts/scrotc.sh))
-    (writeShellScriptBin "slp" (builtins.readFile ./scripts/slp.sh))
-
-    # languages
-    micromamba
-    pipx
-    rustup
-    zig
-    uv
-
-    # cli tools
-    btop
-    cowsay
-    evcxr
-    ncdu
-    neofetch
-    nix-output-monitor
-    ripgrep
-    silver-searcher
-    scrot
-    xclip
-
-    # programs
-    nixvim-config
-    # i3lock somehow does not accept correct passowrds
-
-    # TODO get berkeley mono at some point
-    dejavu_fonts
-    source-serif-pro
-    terminus_font
-    (nerdfonts.override {
-      fonts = [
-        "FiraCode"
-        "DroidSansMono"
-        "IBMPlexMono"
-      ];
-    })
-  ];
+  home.packages = (import ./home_packages.nix) pkgs ++ [ nixvim-config];
 
   programs = {
-    kitty = {
-      enable = true;
-      package = wrapper pkgs.kitty;
-    };
-    mpv = {
-      enable = true;
-      package = wrapper pkgs.mpv;
-    };
-    home-manager.enable = true;
-    starship = {
-      enable = false;
-      settings = {
-        add_newline = false;
-      };
-    };
-    fish.enable = true;
-    yt-dlp.enable = true;
+    bat.enable = true;
+    eza.enable = true;
     direnv = {
       enable = true;
       nix-direnv.enable = true;
     };
+    fish.enable = true;
     fzf.enable = true;
-    jq.enable = true;
-    bat.enable = true;
-    eza.enable = true;
-    htop.enable = true;
-    info.enable = true;
     git = {
       enable = true;
       delta.enable = true;
@@ -127,7 +59,47 @@ in
         side-by-side = true;
       };
     };
+    htop.enable = true;
+    info.enable = true;
+    jq.enable = true;
+    kitty = {
+      enable = true;
+      package = wrapper pkgs.kitty;
+    };
+    home-manager.enable = true;
+    mpv = {
+      enable = true;
+      package = wrapper pkgs.mpv;
+    };
+    rofi = {
+      enable = true;
+      package = wrapper pkgs.rofi;
+    };
+    starship = {
+      enable = false;
+      settings = {
+        add_newline = false;
+      };
+    };
 
+    wezterm = {
+      enable = true;
+      enableZshIntegration = true;
+      package = wrapper pkgs.wezterm;
+      extraConfig = ''
+        local wezterm = require 'wezterm'
+        config = wezterm.config_builder()
+        local mux = wezterm.mux
+        local act = wezterm.action
+        config.hide_tab_bar_if_only_one_tab = true
+        config.tab_bar_at_bottom = true
+        config.use_fancy_tab_bar = false
+        config.color_scheme = "Catppuccin Mocha"
+        config.front_end = "WebGpu"
+
+        return config
+      '';
+    };
     yazi = {
       enable = true;
       enableZshIntegration = true;
@@ -177,28 +149,7 @@ in
         ];
       };
     };
+    yt-dlp.enable = true;
 
-    rofi = {
-      enable = true;
-      package = wrapper pkgs.rofi;
-    };
-    wezterm = {
-      enable = true;
-      enableZshIntegration = true;
-      package = wrapper pkgs.wezterm;
-      extraConfig = ''
-        local wezterm = require 'wezterm'
-        config = wezterm.config_builder()
-        local mux = wezterm.mux
-        local act = wezterm.action
-        config.hide_tab_bar_if_only_one_tab = true
-        config.tab_bar_at_bottom = true
-        config.use_fancy_tab_bar = false
-        config.color_scheme = "Catppuccin Mocha"
-        config.front_end = "WebGpu"
-
-        return config
-      '';
-    };
   };
 }
