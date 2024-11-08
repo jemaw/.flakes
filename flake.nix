@@ -33,14 +33,13 @@
     in
     {
       # TOOD: make it work on darwin
-      defaultPackage.x86_64-linux = home-manager.defaultPackage.x86_64-linux;
+      packages.x86_64-linux.default = home-manager.defaultPackage.x86_64-linux;
       formatter.x86_64-linux = pkgs.nixfmt-rfc-style;
 
       homeConfigurations.jean = home-manager.lib.homeManagerConfiguration {
         inherit pkgs;
         modules = [
           ./home.nix
-          ./nixgl_pkgs.nix
         ];
         extraSpecialArgs = {
           nixvim-config = inputs.nixvim-config.packages.${system}.default;

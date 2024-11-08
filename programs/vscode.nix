@@ -1,7 +1,13 @@
-{ vscode-extensions, ... }:
+{
+  vscode-extensions,
+  config,
+  pkgs,
+  ...
+}:
 {
   programs.vscode = {
     enable = true;
+    package = config.lib.nixGL.wrap pkgs.vscode;
     extensions = with vscode-extensions; [
       open-vsx-release.rust-lang.rust-analyzer
       vscode-marketplace.golang.go

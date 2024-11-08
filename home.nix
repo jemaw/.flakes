@@ -1,8 +1,14 @@
-{ pkgs, nixvim-config, ... }:
+{
+  pkgs,
+  nixvim-config,
+  config,
+  ...
+}:
 let
   username = "jean";
   user = "jm.wanka";
   mail = user + "@gmail.com";
+  wrapper = config.lib.nixGL.wrap;
 in
 {
   home.username = "${username}";
@@ -84,6 +90,14 @@ in
   ];
 
   programs = {
+    kitty = {
+      enable = true;
+      package = wrapper pkgs.kitty;
+    };
+    mpv = {
+      enable = true;
+      package = wrapper pkgs.mpv;
+    };
     home-manager.enable = true;
     starship = {
       enable = false;
@@ -164,10 +178,14 @@ in
       };
     };
 
-    rofi.enable = true;
+    rofi = {
+      enable = true;
+      package = wrapper pkgs.rofi;
+    };
     wezterm = {
       enable = true;
-      enableZshIntegration = false;
+      enableZshIntegration = true;
+      package = wrapper pkgs.wezterm;
       extraConfig = ''
         local wezterm = require 'wezterm'
         config = wezterm.config_builder()
