@@ -38,7 +38,7 @@ in
   };
 
   # normal packages installed via nix
-  home.packages = (import ./home_packages.nix) pkgs ++ [ nixvim-config];
+  home.packages = (import ./home_packages.nix) pkgs ++ [ nixvim-config ];
 
   programs = {
     bat.enable = true;
