@@ -28,7 +28,12 @@
       pkgs = import nixpkgs {
         inherit system;
         overlays = [ nixgl.overlay ];
-        config.allowUnfree = true;
+        config.allowUnfreePredicate =
+          pkg:
+          builtins.elem (nixpkgs.lib.getName pkg) [
+            "nvidia"
+            "vscode"
+          ];
       };
     in
     {

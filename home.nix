@@ -17,6 +17,11 @@ in
 
   fonts.fontconfig.enable = true;
 
+  nixGL = {
+    packages = pkgs.nixgl; # you must set this or everything will be a noop
+    defaultWrapper = "nvidia";
+  };
+
   # programs with config inside home-manager
   imports = [
     ./programs/awesome
