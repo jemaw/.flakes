@@ -7,7 +7,6 @@ with pkgs;
   wget
   beautysh
   shellcheck
-  nixgl.auto.nixGLDefault
   unclutter
   zsh-completions
 
