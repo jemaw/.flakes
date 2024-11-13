@@ -35,9 +35,11 @@
             "vscode"
           ];
       };
+      standard_packages = import ./standard_packages.nix;
     in
     {
       # TOOD: make it work on darwin
+      inherit standard_packages;
       packages.x86_64-linux.default = home-manager.defaultPackage.x86_64-linux;
       formatter.x86_64-linux = pkgs.nixfmt-rfc-style;
 
@@ -47,6 +49,7 @@
           ./home.nix
         ];
         extraSpecialArgs = {
+          standard_packages = standard_packages;
           nixvim-config = inputs.nixvim-config.packages.${system}.default;
           vscode-extensions = inputs.nix-vscode-extensions.extensions.${system};
         };
