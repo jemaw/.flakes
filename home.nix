@@ -23,14 +23,13 @@ in
     nixvim-config
     pkgs.nixgl.auto.nixGLDefault
   ];
-  # programs with config inside home-manager
+
   imports = [
     ./programs/awesome
     ./programs/tmux.nix
     ./programs/zsh
     ./programs/alacritty.nix
     ./programs/vscode.nix
-    # ./home_packages.nix
     ./programs/standard.nix
   ];
 
