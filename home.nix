@@ -22,7 +22,15 @@ in
   home.packages = (standard_packages pkgs) ++ [
     nixvim-config
     pkgs.nixgl.auto.nixGLDefault
+    pkgs.ghostty
   ];
+
+  home.file = {
+    ".config/ghostty/config" = {
+      source = ./configs/ghostty;
+    };
+  };
+
 
   imports = [
     ./programs/awesome

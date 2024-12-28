@@ -13,6 +13,15 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     nixgl.url = "github:nix-community/nixGL";
+    ghostty = {
+      url = "github:ghostty-org/ghostty";
+
+      # NOTE: The below 2 lines are only required on nixos-unstable,
+      # if you're on stable, they may break your build
+      inputs.nixpkgs-stable.follows = "nixpkgs";
+      inputs.nixpkgs-unstable.follows = "nixpkgs";
+    };
+
   };
 
   outputs =
@@ -21,13 +30,15 @@
       home-manager,
       nixgl,
       nixvim-config,
+      ghostty,
       ...
     }:
     let
       system = "x86_64-linux";
+      ghostty_overlay = (final: prev: { ghostty = inputs.ghostty.packages.${system}.default;});
       pkgs = import nixpkgs {
         inherit system;
-        overlays = [ nixgl.overlay ];
+        overlays = [ nixgl.overlay ghostty_overlay ];
         config.allowUnfreePredicate =
           pkg:
           builtins.elem (nixpkgs.lib.getName pkg) [

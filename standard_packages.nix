@@ -7,7 +7,7 @@ with pkgs;
   wget
   beautysh
   shellcheck
-  unclutter
+  # unclutter  # broken on unstable
   zsh-completions
 
   # scripts
@@ -37,12 +37,9 @@ with pkgs;
   dejavu_fonts
   source-serif-pro
   terminus_font
-  (nerdfonts.override {
-    fonts = [
-      "FiraCode"
-      "DroidSansMono"
-      "IBMPlexMono"
-    ];
-  })
+  nerd-fonts.fira-code
+  nerd-fonts.droid-sans-mono
+  nerd-fonts.blex-mono
+  nerd-fonts._0xproto
 
 ]
