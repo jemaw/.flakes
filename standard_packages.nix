@@ -37,9 +37,4 @@ with pkgs;
   dejavu_fonts
   source-serif-pro
   terminus_font
-  nerd-fonts.fira-code
-  nerd-fonts.droid-sans-mono
-  nerd-fonts.blex-mono
-  nerd-fonts._0xproto
-
 ]
