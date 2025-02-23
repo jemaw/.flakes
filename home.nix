@@ -1,6 +1,5 @@
 {
   pkgs,
-  pkgsUnstable,
   standard_packages,
   nixvim-config,
   ...
@@ -23,11 +22,6 @@ in
   home.packages = (standard_packages pkgs) ++ [
     nixvim-config
     pkgs.nixgl.auto.nixGLDefault
-    pkgsUnstable.ghostty
-    pkgsUnstable.nerd-fonts.fira-code
-    pkgsUnstable.nerd-fonts.droid-sans-mono
-    pkgsUnstable.nerd-fonts.blex-mono
-    pkgsUnstable.nerd-fonts._0xproto
   ];
 
   home.file = {
@@ -35,7 +29,6 @@ in
       source = ./configs/ghostty;
     };
   };
-
 
   imports = [
     ./programs/awesome

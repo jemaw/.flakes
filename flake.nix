@@ -2,26 +2,22 @@
   description = "Home Manager Dotfiles";
 
   inputs = {
-    nixpkgs.url = "github:NixOS/nixpkgs/nixos-24.11";
-    nixpkgs-unstable.url = "github:NixOS/nixpkgs/nixos-unstable";
+    nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
     nix-vscode-extensions.url = "github:nix-community/nix-vscode-extensions";
     nix-vscode-extensions.inputs.nixpkgs.follows = "nixpkgs";
     home-manager = {
-      url = "github:nix-community/home-manager/release-24.11";
+      url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     nixvim-config = {
       url = "github:jemaw/nixvim-config";
-      inputs.nixpkgs.follows = "nixpkgs";
     };
     nixgl.url = "github:nix-community/nixGL";
-
   };
 
   outputs =
     inputs@{
       nixpkgs,
-      nixpkgs-unstable,
       home-manager,
       nixgl,
       nixvim-config,
@@ -29,10 +25,6 @@
     }:
     let
       system = "x86_64-linux";
-      pkgsUnstable = import nixpkgs-unstable {
-        inherit system;
-        overlays = [ nixgl.overlay ];
-      };
       pkgs = import nixpkgs {
         inherit system;
         overlays = [ nixgl.overlay ];
@@ -57,10 +49,10 @@
           ./home.nix
         ];
         extraSpecialArgs = {
-          inherit pkgsUnstable standard_packages;
+          inherit standard_packages;
           nixvim-config = inputs.nixvim-config.packages.${system}.default;
           vscode-extensions = inputs.nix-vscode-extensions.extensions.${system};
-          
+
         };
       };
     };

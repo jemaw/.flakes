@@ -24,6 +24,7 @@ in
         side-by-side = true;
       };
     };
+    helix.enable = true;
     htop.enable = true;
     info.enable = true;
     jq.enable = true;
@@ -72,6 +73,7 @@ in
         manager = {
           sort_by = "natural";
           sort_dir_first = true;
+          linemode = "size";
         };
       };
       keymap = {
