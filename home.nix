@@ -1,11 +1,11 @@
 {
   pkgs,
-  standard_packages,
   nixvim-config,
   ...
 }:
 let
   username = "jean";
+  standard_packages = import ./standard_packages.nix;
 in
 {
   home.username = "${username}";
@@ -13,7 +13,6 @@ in
   home.stateVersion = "23.11";
 
   fonts.fontconfig.enable = true;
-
   nixGL = {
     packages = pkgs.nixgl; # you must set this or everything will be a noop
     defaultWrapper = "nvidia";

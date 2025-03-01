@@ -1,10 +1,7 @@
 {
   description = "Home Manager Dotfiles";
-
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
-    nix-vscode-extensions.url = "github:nix-community/nix-vscode-extensions";
-    nix-vscode-extensions.inputs.nixpkgs.follows = "nixpkgs";
     home-manager = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -16,7 +13,7 @@
   };
 
   outputs =
-    inputs@{
+    {
       nixpkgs,
       home-manager,
       nixgl,
@@ -25,34 +22,34 @@
     }:
     let
       system = "x86_64-linux";
-      pkgs = import nixpkgs {
-        inherit system;
-        overlays = [ nixgl.overlay ];
-        config.allowUnfreePredicate =
-          pkg:
-          builtins.elem (nixpkgs.lib.getName pkg) [
-            "nvidia"
-            "vscode"
-          ];
-      };
-      standard_packages = import ./standard_packages.nix;
     in
     {
       # TOOD: make it work on darwin
-      inherit standard_packages;
       packages.x86_64-linux.default = home-manager.defaultPackage.x86_64-linux;
-      formatter.x86_64-linux = pkgs.nixfmt-rfc-style;
+      formatter.x86_64-linux = nixpkgs.legacyPackages.${system}.nixfmt-rfc-style;
 
       homeConfigurations.jean = home-manager.lib.homeManagerConfiguration {
-        inherit pkgs;
+        pkgs = nixpkgs.legacyPackages.${system};
         modules = [
           ./home.nix
+          {
+            nixpkgs.overlays = [
+              nixgl.overlay
+            ];
+            nixpkgs.config.allowUnfreePredicate =
+              pkg:
+              builtins.elem (nixpkgs.lib.getName pkg) [
+                "nvidia"
+                "vscode"
+                "vscode-extension-MS-python-vscode-pylance"
+                "vscode-extension-ms-vsliveshare-vsliveshare"
+                "vscode-extension-ms-vscode-remote-remote-ssh"
+              ];
+          }
         ];
-        extraSpecialArgs = {
-          inherit standard_packages;
-          nixvim-config = inputs.nixvim-config.packages.${system}.default;
-          vscode-extensions = inputs.nix-vscode-extensions.extensions.${system};
 
+        extraSpecialArgs = {
+          nixvim-config = nixvim-config.packages.${system}.default;
         };
       };
     };

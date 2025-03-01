@@ -1,5 +1,4 @@
 {
-  vscode-extensions,
   config,
   pkgs,
   ...
@@ -9,22 +8,22 @@
     enable = true;
     package = config.lib.nixGL.wrap pkgs.vscode;
     profiles.default = {
-      extensions = with vscode-extensions; [
-        open-vsx-release.rust-lang.rust-analyzer
-        vscode-marketplace.golang.go
-        vscode-marketplace.bbenoist.nix
-        vscode-marketplace.ms-python.vscode-pylance
-        vscode-marketplace.ms-vsliveshare.vsliveshare
-        vscode-marketplace.ms-vscode-remote.remote-ssh
-        vscode-marketplace.redhat.ansible
-        vscode-marketplace.njpwerner.autodocstring
-        vscode-marketplace.redhat.vscode-xml
-        vscode-marketplace.redhat.vscode-yaml
-        vscode-marketplace.serayuzgur.crates
-        vscode-marketplace.tamasfe.even-better-toml
-        vscode-marketplace.vscodevim.vim
-        vscode-marketplace.yzhang.markdown-all-in-one
-        vscode-marketplace.ziglang.vscode-zig
+      extensions = with pkgs; [
+        vscode-extensions.rust-lang.rust-analyzer
+        vscode-extensions.golang.go
+        vscode-extensions.bbenoist.nix
+        vscode-extensions.ms-python.vscode-pylance
+        vscode-extensions.ms-vsliveshare.vsliveshare
+        vscode-extensions.ms-vscode-remote.remote-ssh
+        vscode-extensions.redhat.ansible
+        vscode-extensions.njpwerner.autodocstring
+        vscode-extensions.redhat.vscode-xml
+        vscode-extensions.redhat.vscode-yaml
+        vscode-extensions.serayuzgur.crates
+        vscode-extensions.tamasfe.even-better-toml
+        vscode-extensions.vscodevim.vim
+        vscode-extensions.yzhang.markdown-all-in-one
+        vscode-extensions.ziglang.vscode-zig
       ];
       userSettings = {
         "window.menuBarVisibility" = "toggle";
