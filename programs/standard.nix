@@ -24,7 +24,40 @@ in
         side-by-side = true;
       };
     };
-    helix.enable = true;
+    helix = {
+      enable = true;
+      settings = {
+        theme = "ayu_dark";
+      };
+      languages = {
+        language-server.typescript-language-server = with pkgs.nodePackages; {
+          command = "${typescript-language-server}/bin/typescript-language-server";
+          args = [
+            "--stdio"
+            "--tsserver-path=${typescript}/lib/node_modules/typescript/lib"
+          ];
+        };
+
+        language-server.rust-analyzer.config.check = {
+          command = "clippy";
+        };
+
+        language = [
+          {
+            name = "nix";
+            auto-format = true;
+            formatter = {
+              command = "nixfmt";
+            };
+          }
+          {
+            name = "rust";
+            auto-format = true;
+          }
+        ];
+      };
+    };
+    home-manager.enable = true;
     htop.enable = true;
     info.enable = true;
     jq.enable = true;
@@ -32,7 +65,7 @@ in
       enable = true;
       package = wrapper pkgs.kitty;
     };
-    home-manager.enable = true;
+
     mpv = {
       enable = true;
       package = wrapper pkgs.mpv;
@@ -118,5 +151,46 @@ in
     };
     yt-dlp.enable = true;
 
+    zed-editor = {
+      enable = true;
+      extraPackages = [ pkgs.nixd ];
+      extensions = [
+        "dockerfile"
+        "haskell"
+        "html"
+        "lua"
+        "make"
+        "nix"
+        "proto"
+        "toml"
+        "zig"
+      ];
+      userSettings = {
+        telemetry.metrics = false;
+        vim_mode = true;
+        cursor_blink = false;
+        theme = "Tokyo Night";
+      };
+      userKeymaps = [
+        {
+          context = "Workspace";
+          bindings = {
+            ctrl-shift-t = "workspace::NewTerminal";
+          };
+
+        }
+        {
+          context = "Editor";
+          bindings = {
+            "k j" = [
+              "workspace::SendKeystrokes"
+              "escape"
+            ];
+          };
+        }
+
+      ];
+
+    };
   };
 }

@@ -2,6 +2,7 @@
 with pkgs;
 [
   # misc
+  nil
   nixpkgs-fmt
   nixfmt-rfc-style
   wget
@@ -15,11 +16,16 @@ with pkgs;
   (writeShellScriptBin "slp" (builtins.readFile ./scripts/slp.sh))
 
   # languages
-  micromamba
+  bash-language-server
   pipx
+  pylsp
+  ruff
+  rust-analyzer
   rustup
-  zig
+  taplo
   uv
+  zls
+  zig
 
   # cli tools
   btop
