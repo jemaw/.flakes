@@ -18,9 +18,7 @@ with pkgs;
   # languages
   bash-language-server
   pipx
-  pylsp
   ruff
-  rust-analyzer
   rustup
   taplo
   uv
