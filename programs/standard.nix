@@ -152,7 +152,7 @@ in
     yt-dlp.enable = true;
 
     zed-editor = {
-      enable = true;
+      enable = false;
       extraPackages = [ pkgs.nixd ];
       extensions = [
         "dockerfile"

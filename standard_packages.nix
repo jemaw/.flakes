@@ -26,6 +26,7 @@ with pkgs;
   zig
 
   # cli tools
+  dust
   btop
   cowsay
   evcxr
@@ -36,6 +37,7 @@ with pkgs;
   silver-searcher
   scrot
   xclip
+  ffmpeg_6
 
   # TODO get berkeley mono at some point
   dejavu_fonts
