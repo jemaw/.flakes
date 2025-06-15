@@ -3,10 +3,13 @@
   pkgs,
   ...
 }:
+let
+  wrapper = config.lib.nixGL.wrap;
+in
 {
   programs.vscode = {
     enable = true;
-    package = config.lib.nixGL.wrap pkgs.vscode;
+    package = wrapper pkgs.vscode;
     profiles.default = {
       extensions = with pkgs; [
         vscode-extensions.rust-lang.rust-analyzer

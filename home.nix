@@ -4,12 +4,12 @@
   ...
 }:
 let
-  username = "jean";
+  userConfig = import ./user-config.nix;
   standard_packages = import ./standard_packages.nix;
 in
 {
-  home.username = "${username}";
-  home.homeDirectory = "/home/${username}";
+  home.username = userConfig.username;
+  home.homeDirectory = "/home/${userConfig.username}";
   home.stateVersion = "23.11";
 
   fonts.fontconfig.enable = true;

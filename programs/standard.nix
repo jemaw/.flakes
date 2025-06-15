@@ -1,7 +1,6 @@
 { pkgs, config, ... }:
 let
-  user = "jm.wanka";
-  mail = user + "@gmail.com";
+  userConfig = import ../user-config.nix;
   wrapper = config.lib.nixGL.wrap;
 in
 {
@@ -18,8 +17,8 @@ in
       enable = true;
       delta.enable = true;
       lfs.enable = true;
-      userEmail = mail;
-      userName = "Jean Wanka";
+      userEmail = userConfig.email;
+      userName = userConfig.fullName;
       delta.options = {
         side-by-side = true;
       };
