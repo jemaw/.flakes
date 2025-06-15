@@ -33,6 +33,7 @@ with pkgs;
   ncdu
   neofetch
   nix-output-monitor
+  ollama
   ripgrep
   silver-searcher
   scrot
