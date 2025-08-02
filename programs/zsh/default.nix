@@ -17,7 +17,7 @@
       ignoreAllDups = true;
     };
 
-    initExtra = ''
+    initContent = ''
       ${builtins.readFile ./zshrc}
     '';
     profileExtra = ''
