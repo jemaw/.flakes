@@ -102,14 +102,14 @@ in
       enable = true;
       enableZshIntegration = true;
       settings = {
-        manager = {
+        mgr = {
           sort_by = "natural";
           sort_dir_first = true;
           linemode = "size";
         };
       };
       keymap = {
-        manager.prepend_keymap = [
+        mgr.prepend_keymap = [
           {
             on = [
               "g"
@@ -151,7 +151,7 @@ in
     yt-dlp.enable = true;
 
     zed-editor = {
-      enable = false;
+      enable = true;
       extraPackages = [ pkgs.nixd ];
       extensions = [
         "dockerfile"
