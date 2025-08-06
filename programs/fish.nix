@@ -42,6 +42,12 @@
 
     # Fish shell initialization
     shellInit = ''
+      # Fish doesn't seem to autosource this, zsh
+      # seems to autosource /etc/profile.d/nix-daemon.sh
+      if test -e /etc/profile.d/nix-daemon.fish
+        source /etc/profile.d/nix-daemon.fish
+      end
+
       # Disable greeting
       set fish_greeting
 
