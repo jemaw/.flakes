@@ -13,6 +13,7 @@ in
     };
     fish.enable = true;
     fzf.enable = true;
+    less.enable = true;
     git = {
       enable = true;
       delta.enable = true;
