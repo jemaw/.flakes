@@ -31,7 +31,6 @@ in
   imports = [
     ./programs/awesome
     ./programs/tmux.nix
-    ./programs/zsh
     ./programs/fish.nix
     ./programs/alacritty.nix
     ./programs/vscode.nix
