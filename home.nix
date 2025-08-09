@@ -23,11 +23,10 @@ in
     pkgs.nixgl.auto.nixGLDefault
   ];
 
-  home.file = {
-    ".config/ghostty/config" = {
-      source = ./configs/ghostty;
-    };
+  home.sessionVariables = {
+    EDITOR = "nvim";
   };
+
 
   imports = [
     ./programs/awesome
@@ -37,6 +36,8 @@ in
     ./programs/alacritty.nix
     ./programs/vscode.nix
     ./programs/standard.nix
+    ./programs/ghostty.nix
+    ./programs/zsh.nix
   ];
 
   xsession.windowManager.xmonad = {

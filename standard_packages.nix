@@ -44,7 +44,6 @@ with pkgs;
   source-serif-pro
   terminus_font
 
-  ghostty
   nerd-fonts.fira-code
   nerd-fonts.droid-sans-mono
   nerd-fonts.blex-mono
