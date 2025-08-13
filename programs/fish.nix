@@ -119,6 +119,7 @@
 
       # Key bindings
       bind -M insert \cj accept-autosuggestion execute
+      bind -M insert ctrl-space accept-autosuggestion execute
       bind -M insert kj "if commandline -P; commandline -f cancel; else; set fish_bind_mode default; commandline -f backward-char force-repaint; end"
       bind -M default v edit_command_buffer
     '';
