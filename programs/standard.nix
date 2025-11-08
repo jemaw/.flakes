@@ -94,8 +94,9 @@ in
         config.tab_bar_at_bottom = true
         config.use_fancy_tab_bar = false
         config.color_scheme = "Catppuccin Mocha"
-        config.front_end = "WebGpu"
+        -- config.front_end = "WebGpu"
         config.enable_kitty_keyboard = true
+        config.enable_wayland = true
 
         return config
       '';
