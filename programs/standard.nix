@@ -166,6 +166,7 @@ in
         "proto"
         "toml"
         "zig"
+        "kdl"
       ];
       userSettings = {
         telemetry.metrics = false;
@@ -182,7 +183,7 @@ in
 
         }
         {
-          context = "Editor";
+          context = "vim_mode == insert";
           bindings = {
             "k j" = [
               "workspace::SendKeystrokes"
