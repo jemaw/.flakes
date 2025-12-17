@@ -25,7 +25,7 @@ in
       enable = true;
       lfs.enable = true;
       settings.user = {
-        mail = userConfig.email;
+        email = userConfig.email;
         name = userConfig.fullName;
       };
     };
