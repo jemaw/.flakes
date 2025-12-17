@@ -14,14 +14,19 @@ in
     fish.enable = true;
     fzf.enable = true;
     less.enable = true;
+    delta = {
+      enable = true;
+      enableGitIntegration = true;
+      options = {
+        side-by-side = true;
+      };
+    };
     git = {
       enable = true;
-      delta.enable = true;
       lfs.enable = true;
-      userEmail = userConfig.email;
-      userName = userConfig.fullName;
-      delta.options = {
-        side-by-side = true;
+      settings.user = {
+        mail = userConfig.email;
+        name = userConfig.fullName;
       };
     };
     helix = {
@@ -172,7 +177,9 @@ in
         telemetry.metrics = false;
         vim_mode = true;
         cursor_blink = false;
-        theme = "Tokyo Night";
+        theme = "Catppuccin Mocha";
+        always_treat_brackets_as_autoclosed = true;
+        edit_predictions.mode = "subtle";
       };
       userKeymaps = [
         {
