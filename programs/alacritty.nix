@@ -1,11 +1,7 @@
-{ config, pkgs, ... }:
-let
-  wrapper = config.lib.nixGL.wrap;
-in
+{ ... }:
 {
   programs.alacritty = {
     enable = true;
-    package = wrapper pkgs.alacritty;
     settings = {
       env.TERM = "xterm-256color";
       window.padding = {

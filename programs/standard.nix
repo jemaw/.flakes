@@ -1,7 +1,6 @@
 { pkgs, config, ... }:
 let
   userConfig = import ../user-config.nix;
-  wrapper = config.lib.nixGL.wrap;
 in
 {
   programs = {
@@ -68,16 +67,13 @@ in
     jq.enable = true;
     kitty = {
       enable = true;
-      package = wrapper pkgs.kitty;
     };
 
     mpv = {
       enable = true;
-      package = wrapper pkgs.mpv;
     };
     rofi = {
       enable = true;
-      package = wrapper pkgs.rofi;
     };
     starship = {
       enable = false;
@@ -89,7 +85,6 @@ in
     wezterm = {
       enable = true;
       enableZshIntegration = true;
-      package = wrapper pkgs.wezterm;
       extraConfig = ''
         local wezterm = require 'wezterm'
         config = wezterm.config_builder()

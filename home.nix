@@ -12,15 +12,15 @@ in
   home.homeDirectory = "/home/${userConfig.username}";
   home.stateVersion = "23.11";
 
-  fonts.fontconfig.enable = true;
-  nixGL = {
-    packages = pkgs.nixgl; # you must set this or everything will be a noop
-    defaultWrapper = "nvidia";
+  targets.genericLinux.enable = true;
+  targets.genericLinux.gpu.nvidia = {
+    enable = true;
+    version = "580.105.08";
+    sha256 = "sha256-2cboGIZy8+t03QTPpp3VhHn6HQFiyMKMjRdiV2MpNHU=";
   };
 
   home.packages = (standard_packages pkgs) ++ [
     nixvim-config
-    pkgs.nixgl.auto.nixGLDefault
   ];
 
   home.sessionVariables = {

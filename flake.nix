@@ -9,14 +9,12 @@
     nixvim-config = {
       url = "github:jemaw/nixvim-config";
     };
-    nixgl.url = "github:nix-community/nixGL";
   };
 
   outputs =
     {
       nixpkgs,
       home-manager,
-      nixgl,
       nixvim-config,
       ...
     }:
@@ -33,13 +31,12 @@
         modules = [
           ./home.nix
           {
-            nixpkgs.overlays = [
-              nixgl.overlay
-            ];
+            nixpkgs.config.nvidia.acceptLicense = true;
             nixpkgs.config.allowUnfreePredicate =
               pkg:
               builtins.elem (nixpkgs.lib.getName pkg) [
                 "nvidia"
+                "nvidia-x11"
                 "vscode"
                 "vscode-extension-MS-python-vscode-pylance"
                 "vscode-extension-ms-vsliveshare-vsliveshare"
