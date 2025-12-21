@@ -203,6 +203,8 @@ in
             "space n" = "workspace::ToggleLeftDock";
             "space /" = "workspace::NewSearch";
             "space w" = "workspace::Save";
+            "space b" = "outline::Toggle";
+            "space s" = "project_symbols::Toggle";
           };
         }
         {
