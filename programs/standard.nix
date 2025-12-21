@@ -175,14 +175,35 @@ in
         theme = "Catppuccin Mocha";
         always_treat_brackets_as_autoclosed = true;
         edit_predictions.mode = "subtle";
+        inlay_hints.enabled = true;
       };
       userKeymaps = [
         {
           context = "Workspace";
           bindings = {
+            # Seamless bidirectional terminal toggle
+            "ctrl-;" = "terminal_panel::ToggleFocus";
+            # Create new terminal
             ctrl-shift-t = "workspace::NewTerminal";
           };
 
+        }
+        {
+          context = "Editor";
+          bindings = {
+            # Override the conflicting line numbers toggle with terminal toggle
+            "ctrl-;" = "terminal_panel::ToggleFocus";
+          };
+        }
+        {
+          context = "Editor && VimControl && !VimWaiting && !menu";
+          bindings = {
+            "space p" = "file_finder::Toggle";
+            "space t" = "tab_switcher::Toggle";
+            "space n" = "workspace::ToggleLeftDock";
+            "space /" = "workspace::NewSearch";
+            "space w" = "workspace::Save";
+          };
         }
         {
           context = "vim_mode == insert";
@@ -190,6 +211,15 @@ in
             "k j" = [
               "workspace::SendKeystrokes"
               "escape"
+            ];
+          };
+        }
+        {
+          context = "vim_mode == insert";
+          bindings = {
+            "j k" = [
+              "workspace::SendKeystrokes"
+              "escape : w enter"
             ];
           };
         }

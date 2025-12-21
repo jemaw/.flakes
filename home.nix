@@ -27,7 +27,6 @@ in
     EDITOR = "nvim";
   };
 
-
   imports = [
     ./programs/awesome
     ./programs/tmux.nix
