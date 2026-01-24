@@ -9,7 +9,6 @@
       cursor-style = "block";
       shell-integration-features = "no-cursor";
       cursor-style-blink = false;
-      theme = "catppuccin-mocha";
       window-padding-y = 8;
       window-padding-x = 4;
     };
