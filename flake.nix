@@ -24,7 +24,7 @@
     {
       # TOOD: make it work on darwin
       packages.x86_64-linux.default = home-manager.packages.x86_64-linux.default;
-      formatter.x86_64-linux = nixpkgs.legacyPackages.${system}.nixfmt-rfc-style;
+      formatter.x86_64-linux = nixpkgs.legacyPackages.${system}.nixfmt;
 
       homeConfigurations.jean = home-manager.lib.homeManagerConfiguration {
         pkgs = nixpkgs.legacyPackages.${system};

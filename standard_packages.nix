@@ -4,7 +4,7 @@ with pkgs;
   # misc
   nil
   nixpkgs-fmt
-  nixfmt-rfc-style
+  nixfmt
   wget
   beautysh
   shellcheck
