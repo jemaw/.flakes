@@ -103,6 +103,7 @@ in
     };
     yazi = {
       enable = true;
+      shellWrapperName = "y";
       enableZshIntegration = true;
       settings = {
         mgr = {

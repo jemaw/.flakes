@@ -142,16 +142,12 @@
     shellAliases = {
       # programs
       vi = "nvim";
-      ra = "yy";
       ag = "rg";
       # python
       py = "python";
       # arch
       pacu = "sudo pacman -Syu";
       paci = "sudo pacman -S";
-      # ls
-      ls = "eza";
-      ll = "eza -lg";
 
       # git
       g = "git";

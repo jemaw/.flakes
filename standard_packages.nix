@@ -1,6 +1,13 @@
 { pkgs, ... }:
 with pkgs;
 [
+  # apps
+  discord
+  enpass
+  gamescope
+  obsidian
+  signal-desktop
+
   # misc
   nil
   nixpkgs-fmt

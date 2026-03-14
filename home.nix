@@ -12,13 +12,6 @@ in
   home.homeDirectory = "/home/${userConfig.username}";
   home.stateVersion = "23.11";
 
-  targets.genericLinux.enable = true;
-  targets.genericLinux.gpu.nvidia = {
-    enable = true;
-    version = "590.48.01";
-    sha256 = "sha256-ueL4BpN4FDHMh/TNKRCeEz3Oy1ClDWto1LO/LWlr1ok=";
-  };
-
   home.packages = (standard_packages pkgs) ++ [
     nixvim-config
   ];
@@ -29,6 +22,7 @@ in
 
   imports = [
     ./programs/awesome
+    ./programs/niri.nix
     ./programs/tmux.nix
     ./programs/fish.nix
     ./programs/alacritty.nix
