@@ -7,8 +7,11 @@ with pkgs;
   # apps
   discord
   enpass
+  evince
   firefox-devedition
   gamescope
+  mpv
+  nautilus
   obsidian
   signal-desktop
 

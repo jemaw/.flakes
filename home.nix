@@ -22,6 +22,14 @@ in
     EDITOR = "nvim";
   };
 
+  home.pointerCursor = {
+    package = pkgs.adwaita-icon-theme;
+    name = "Adwaita";
+    size = 24;
+    gtk.enable = true;
+    x11.enable = true;
+  };
+
   imports = [
     ./programs/awesome
     ./programs/niri.nix
@@ -35,7 +43,7 @@ in
   ];
 
   xsession.windowManager.xmonad = {
-    enable = true;
+    enable = false;
     enableContribAndExtras = true;
     config = ./programs/xmonad/xmonad.hs;
   };

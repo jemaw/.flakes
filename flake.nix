@@ -64,13 +64,14 @@
         };
       };
 
-      nixosConfigurations.nixos = nixpkgs-stable.lib.nixosSystem {
+      nixosConfigurations.nixos = nixpkgs.lib.nixosSystem {
         inherit system;
         modules = [
           ./hosts/nixos/configuration.nix
           home-manager.nixosModules.home-manager
           {
             home-manager.useUserPackages = true;
+            home-manager.backupFileExtension = "bak";
             home-manager.sharedModules = [
               noctalia-shell.homeModules.default
               {

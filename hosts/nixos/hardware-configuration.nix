@@ -25,6 +25,16 @@
       fsType = "ext4";
     };
 
+  fileSystems."/mnt/fastdata" =
+    { device = "/dev/disk/by-uuid/9df5461d-c03f-4521-ac72-f4e690351d7a";
+      fsType = "ext4";
+    };
+
+  fileSystems."/mnt/data" =
+    { device = "/dev/disk/by-uuid/c16f4b6e-eda4-4efd-8d6d-6d4b5ac593cb";
+      fsType = "ext4";
+    };
+
   nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
   hardware.cpu.amd.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
 }
