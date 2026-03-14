@@ -8,7 +8,7 @@
   imports = [ ./hardware-configuration.nix ];
 
   boot.loader.grub.enable = true;
-  boot.loader.grub.device = "/dev/nvme1n1";
+  boot.loader.grub.device = "/dev/disk/by-id/nvme-Samsung_SSD_990_PRO_2TB_S7HENU0Y940021J";
   boot.loader.grub.useOSProber = true;
   boot.loader.grub.extraEntries = ''
     menuentry "Arch Linux" {

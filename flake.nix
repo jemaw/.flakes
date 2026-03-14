@@ -13,9 +13,6 @@
     noctalia-shell = {
       url = "github:noctalia-dev/noctalia-shell";
     };
-    noctalia-qs = {
-      url = "github:noctalia-dev/noctalia-qs";
-    };
   };
 
   outputs =
