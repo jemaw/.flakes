@@ -13,6 +13,9 @@
     noctalia-shell = {
       url = "github:noctalia-dev/noctalia-shell";
     };
+    llm-agents = {
+      url = "github:numtide/llm-agents.nix";
+    };
   };
 
   outputs =
@@ -22,14 +25,15 @@
       home-manager,
       nixvim-config,
       noctalia-shell,
+      llm-agents,
       ...
     }:
     let
       system = "x86_64-linux";
       nixvim-pkg = nixvim-config.packages.${system}.default;
+      claude-code-pkg = llm-agents.packages.${system}.claude-code;
       unfreePackages = [
         "discord"
-        "enpass"
         "obsidian"
         "vscode"
         "vscode-extension-MS-python-vscode-pylance"
@@ -55,6 +59,7 @@
 
         extraSpecialArgs = {
           nixvim-config = nixvim-pkg;
+          claude-code = claude-code-pkg;
         };
       };
 
@@ -76,6 +81,7 @@
             home-manager.users.jean = import ./hosts/nixos/home.nix;
             home-manager.extraSpecialArgs = {
               nixvim-config = nixvim-pkg;
+              claude-code = claude-code-pkg;
             };
           }
         ];

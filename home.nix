@@ -1,6 +1,7 @@
 {
   pkgs,
   nixvim-config,
+  claude-code,
   ...
 }:
 let
@@ -14,6 +15,7 @@ in
 
   home.packages = (standard_packages pkgs) ++ [
     nixvim-config
+    claude-code
   ];
 
   home.sessionVariables = {
