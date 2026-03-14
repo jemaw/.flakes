@@ -72,7 +72,7 @@
   programs = {
     bash.enable = true;
     fish.enable = true;
-    firefox.enable = true;
+    # firefox.enable = true; # using firefox-devedition via home-manager instead
     gamemode.enable = true;
     git.enable = true;
     steam.enable = true;

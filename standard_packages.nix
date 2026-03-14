@@ -4,6 +4,7 @@ with pkgs;
   # apps
   discord
   enpass
+  firefox-devedition
   gamescope
   obsidian
   signal-desktop
