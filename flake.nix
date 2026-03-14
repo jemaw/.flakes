@@ -34,6 +34,7 @@
       claude-code-pkg = llm-agents.packages.${system}.claude-code;
       unfreePackages = [
         "discord"
+        "enpass"
         "obsidian"
         "vscode"
         "vscode-extension-MS-python-vscode-pylance"

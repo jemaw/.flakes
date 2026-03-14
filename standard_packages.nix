@@ -1,8 +1,12 @@
 { pkgs, ... }:
+let
+  enpass = import ./pkgs/enpass.nix { inherit pkgs; };
+in
 with pkgs;
 [
   # apps
   discord
+  enpass
   firefox-devedition
   gamescope
   obsidian

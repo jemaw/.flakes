@@ -41,7 +41,13 @@
   };
 
   services = {
-    openssh.enable = true;
+    openssh = {
+      enable = true;
+      settings = {
+        PasswordAuthentication = false;
+        PermitRootLogin = "no";
+      };
+    };
     displayManager.enable = true;
     displayManager.ly.enable = true;
     pipewire = {
