@@ -11,15 +11,11 @@
       vi = "nvim";
       ra = "yy";
       ag = "rg";
-      cat = "bat";
       # python
       py = "python";
       # arch
       pacu = "sudo pacman -Syu";
       paci = "sudo pacman -S";
-      # ls
-      ls = "eza";
-      ll = "eza -lg";
 
       # git
       g = "git";

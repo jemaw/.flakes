@@ -144,7 +144,6 @@
       vi = "nvim";
       ra = "yy";
       ag = "rg";
-      cat = "bat";
       # python
       py = "python";
       # arch

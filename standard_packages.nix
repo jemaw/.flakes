@@ -21,6 +21,7 @@ with pkgs;
   ruff
   rustup
   taplo
+  typst
   uv
   zls
   zig
@@ -30,8 +31,8 @@ with pkgs;
   btop
   cowsay
   evcxr
+  fastfetch
   ncdu
-  neofetch
   nix-output-monitor
   ripgrep
   silver-searcher
