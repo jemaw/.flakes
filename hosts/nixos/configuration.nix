@@ -38,6 +38,8 @@
     modesetting.enable = true;
     open = true;
     nvidiaSettings = true;
+    powerManagement.enable = true;
+    powerManagement.finegrained = false;
   };
 
   services = {
@@ -57,6 +59,7 @@
   };
 
   programs.niri.enable = true;
+  programs.nix-ld.enable = true;
 
   users.users.jean = {
     isNormalUser = true;
