@@ -20,6 +20,7 @@ in
         side-by-side = true;
       };
     };
+    ghostty.enable = true;
     git = {
       enable = true;
       lfs.enable = true;
@@ -93,10 +94,9 @@ in
         config.hide_tab_bar_if_only_one_tab = true
         config.tab_bar_at_bottom = true
         config.use_fancy_tab_bar = false
-        config.color_scheme = "Catppuccin Mocha"
-        -- config.front_end = "WebGpu"
         config.enable_kitty_keyboard = true
         config.enable_wayland = true
+        config.color_scheme = "zenbones_dark"
 
         return config
       '';

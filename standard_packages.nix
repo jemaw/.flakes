@@ -16,6 +16,7 @@ with pkgs;
   signal-desktop
 
   # misc
+  hyprpicker
   nil
   nixpkgs-fmt
   nixfmt
