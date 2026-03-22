@@ -115,6 +115,7 @@
     polkit_gnome
     brightnessctl
     pavucontrol
+    unzip
   ];
 
   system.stateVersion = "25.11";

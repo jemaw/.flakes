@@ -1,6 +1,5 @@
 {
   pkgs,
-  nixvim-config,
   claude-code,
   ...
 }:
@@ -14,7 +13,6 @@ in
   home.stateVersion = "23.11";
 
   home.packages = (standard_packages pkgs) ++ [
-    nixvim-config
     claude-code
   ];
 

@@ -6,8 +6,14 @@
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    nixvim = {
+      url = "github:nix-community/nixvim";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     nixvim-config = {
       url = "github:jemaw/nixvim-config";
+      inputs.nixpkgs.follows = "nixpkgs";
+      inputs.nixvim.follows = "nixvim";
     };
     noctalia-shell = {
       url = "github:noctalia-dev/noctalia-shell";
@@ -21,6 +27,7 @@
     {
       nixpkgs,
       home-manager,
+      nixvim,
       nixvim-config,
       noctalia-shell,
       llm-agents,
@@ -28,8 +35,11 @@
     }:
     let
       system = "x86_64-linux";
-      nixvim-pkg = nixvim-config.packages.${system}.default;
       claude-code-pkg = llm-agents.packages.${system}.claude-code;
+      nixvimModules = [
+        nixvim.homeModules.nixvim
+        nixvim-config.homeManagerModules.default
+      ];
       unfreePackages = [
         "discord"
         "enpass"
@@ -43,7 +53,7 @@
     {
       # TOOD: make it work on darwin
       packages.x86_64-linux.default = home-manager.packages.x86_64-linux.default;
-      formatter.x86_64-linux = nixpkgs.legacyPackages.${system}.nixfmt;
+      formatter.x86_64-linux = nixpkgs.legacyPackages.${system}.nixfmt-tree;
 
       homeConfigurations.jean = home-manager.lib.homeManagerConfiguration {
         pkgs = nixpkgs.legacyPackages.${system};
@@ -52,12 +62,19 @@
           {
             nixpkgs.config.nvidia.acceptLicense = true;
             nixpkgs.config.allowUnfreePredicate =
-              pkg: builtins.elem (nixpkgs.lib.getName pkg) (unfreePackages ++ [ "nvidia" "nvidia-x11" ]);
+              pkg:
+              builtins.elem (nixpkgs.lib.getName pkg) (
+                unfreePackages
+                ++ [
+                  "nvidia"
+                  "nvidia-x11"
+                ]
+              );
           }
-        ];
+        ]
+        ++ nixvimModules;
 
         extraSpecialArgs = {
-          nixvim-config = nixvim-pkg;
           claude-code = claude-code-pkg;
         };
       };
@@ -74,13 +91,12 @@
               noctalia-shell.homeModules.default
               {
                 home.enableNixpkgsReleaseCheck = false;
-                nixpkgs.config.allowUnfreePredicate =
-                  pkg: builtins.elem (nixpkgs.lib.getName pkg) unfreePackages;
+                nixpkgs.config.allowUnfreePredicate = pkg: builtins.elem (nixpkgs.lib.getName pkg) unfreePackages;
               }
-            ];
+            ]
+            ++ nixvimModules;
             home-manager.users.jean = import ./hosts/nixos/home.nix;
             home-manager.extraSpecialArgs = {
-              nixvim-config = nixvim-pkg;
               claude-code = claude-code-pkg;
             };
           }
