@@ -1,6 +1,4 @@
 {
-  config,
-  lib,
   pkgs,
   ...
 }:
@@ -84,7 +82,13 @@
     # firefox.enable = true; # using firefox-devedition via home-manager instead
     gamemode.enable = true;
     git.enable = true;
-    steam.enable = true;
+    steam = {
+      enable = true;
+      extraCompatPackages = with pkgs; [
+        proton-ge-bin
+      ];
+    };
+
     xwayland.enable = true;
     zsh.enable = true;
     gnupg.agent = {

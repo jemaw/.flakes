@@ -22,7 +22,7 @@
     "usbhid"
   ];
   boot.initrd.kernelModules = [ "dm-snapshot" ];
-  boot.kernelModules = [ ];
+  boot.kernelModules = [ "ntsync" ];
   boot.extraModulePackages = [ ];
 
   fileSystems."/" = {
