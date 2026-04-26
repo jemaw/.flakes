@@ -62,6 +62,18 @@ in
         ];
       };
     };
+    firefox = {
+      enable = true;
+      package = pkgs.firefox-devedition;
+      profiles.dev-edition-default = {
+        id = 0;
+        isDefault = true;
+        path = "fkfvv2t7.dev-edition-default";
+        settings = {
+          "media.ffmpeg.vaapi.enabled" = true;
+        };
+      };
+    };
     home-manager.enable = true;
     htop.enable = true;
     info.enable = true;

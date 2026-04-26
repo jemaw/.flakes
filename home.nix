@@ -1,6 +1,5 @@
 {
   pkgs,
-  claude-code,
   ...
 }:
 let
@@ -13,11 +12,15 @@ in
   home.stateVersion = "23.11";
 
   home.packages = (standard_packages pkgs) ++ [
-    claude-code
+    pkgs.llm-agents.claude-code
+    pkgs.llm-agents.pi
   ];
 
   home.sessionVariables = {
     EDITOR = "nvim";
+    LIBVA_DRIVER_NAME = "nvidia";
+    NVD_BACKEND = "direct";
+    MOZ_DISABLE_RDD_SANDBOX = "1";
   };
 
   home.pointerCursor = {

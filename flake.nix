@@ -35,7 +35,10 @@
     }:
     let
       system = "x86_64-linux";
-      claude-code-pkg = llm-agents.packages.${system}.claude-code;
+      pkgs = import nixpkgs {
+        inherit system;
+        overlays = [ llm-agents.overlays.default ];
+      };
       nixvimModules = [
         nixvim.homeModules.nixvim
         nixvim-config.homeManagerModules.default
@@ -56,7 +59,7 @@
       formatter.x86_64-linux = nixpkgs.legacyPackages.${system}.nixfmt-tree;
 
       homeConfigurations.jean = home-manager.lib.homeManagerConfiguration {
-        pkgs = nixpkgs.legacyPackages.${system};
+        inherit pkgs;
         modules = [
           ./hosts/arch/home.nix
           {
@@ -73,10 +76,6 @@
           }
         ]
         ++ nixvimModules;
-
-        extraSpecialArgs = {
-          claude-code = claude-code-pkg;
-        };
       };
 
       nixosConfigurations.nixos = nixpkgs.lib.nixosSystem {
@@ -85,20 +84,19 @@
           ./hosts/nixos/configuration.nix
           home-manager.nixosModules.home-manager
           {
+            nixpkgs.overlays = [ llm-agents.overlays.default ];
             home-manager.useUserPackages = true;
             home-manager.backupFileExtension = "bak";
             home-manager.sharedModules = [
               noctalia-shell.homeModules.default
               {
                 home.enableNixpkgsReleaseCheck = false;
+                nixpkgs.overlays = [ llm-agents.overlays.default ];
                 nixpkgs.config.allowUnfreePredicate = pkg: builtins.elem (nixpkgs.lib.getName pkg) unfreePackages;
               }
             ]
             ++ nixvimModules;
             home-manager.users.jean = import ./hosts/nixos/home.nix;
-            home-manager.extraSpecialArgs = {
-              claude-code = claude-code-pkg;
-            };
           }
         ];
       };
