@@ -1,6 +1,4 @@
 {
-  config,
-  lib,
   pkgs,
   ...
 }:
@@ -33,7 +31,12 @@
     videoDrivers = [ "nvidia" ];
   };
 
-  hardware.graphics.enable = true;
+  hardware.graphics = {
+    enable = true;
+    extraPackages = with pkgs; [
+      nvidia-vaapi-driver
+    ];
+  };
   hardware.nvidia = {
     modesetting.enable = true;
     open = true;
@@ -84,7 +87,13 @@
     # firefox.enable = true; # using firefox-devedition via home-manager instead
     gamemode.enable = true;
     git.enable = true;
-    steam.enable = true;
+    steam = {
+      enable = true;
+      extraCompatPackages = with pkgs; [
+        proton-ge-bin
+      ];
+    };
+
     xwayland.enable = true;
     zsh.enable = true;
     gnupg.agent = {

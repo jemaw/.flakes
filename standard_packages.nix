@@ -8,7 +8,6 @@ with pkgs;
   discord
   enpass
   evince
-  firefox-devedition
   gamescope
   mpv
   nautilus

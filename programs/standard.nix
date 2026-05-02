@@ -35,11 +35,11 @@ in
         theme = "ayu_dark";
       };
       languages = {
-        language-server.typescript-language-server = with pkgs.nodePackages; {
-          command = "${typescript-language-server}/bin/typescript-language-server";
+        language-server.typescript-language-server = {
+          command = "${pkgs.typescript-language-server}/bin/typescript-language-server";
           args = [
             "--stdio"
-            "--tsserver-path=${typescript}/lib/node_modules/typescript/lib"
+            "--tsserver-path=${pkgs.typescript}/lib/node_modules/typescript/lib"
           ];
         };
 
@@ -60,6 +60,18 @@ in
             auto-format = true;
           }
         ];
+      };
+    };
+    firefox = {
+      enable = true;
+      package = pkgs.firefox-devedition;
+      profiles.dev-edition-default = {
+        id = 0;
+        isDefault = true;
+        path = "fkfvv2t7.dev-edition-default";
+        settings = {
+          "media.ffmpeg.vaapi.enabled" = true;
+        };
       };
     };
     home-manager.enable = true;
