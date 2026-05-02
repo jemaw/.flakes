@@ -35,11 +35,11 @@ in
         theme = "ayu_dark";
       };
       languages = {
-        language-server.typescript-language-server = with pkgs.nodePackages; {
-          command = "${typescript-language-server}/bin/typescript-language-server";
+        language-server.typescript-language-server = {
+          command = "${pkgs.typescript-language-server}/bin/typescript-language-server";
           args = [
             "--stdio"
-            "--tsserver-path=${typescript}/lib/node_modules/typescript/lib"
+            "--tsserver-path=${pkgs.typescript}/lib/node_modules/typescript/lib"
           ];
         };
 
