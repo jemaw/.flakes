@@ -15,6 +15,8 @@ with pkgs;
   signal-desktop
 
   # misc
+  bubblewrap
+  socat
   hyprpicker
   nil
   nixpkgs-fmt
