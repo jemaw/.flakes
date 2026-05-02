@@ -38,6 +38,7 @@ in
     ./programs/standard.nix
     ./programs/ghostty.nix
     ./programs/zsh.nix
+    ./programs/claude.nix
   ];
 
   xsession.windowManager.xmonad = {
