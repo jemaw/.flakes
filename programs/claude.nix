@@ -2,6 +2,7 @@
 let
   skills = [
     "hello-nix"
+    "spec-interview"
   ];
 
   mkSkill = name: {
