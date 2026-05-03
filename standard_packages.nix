@@ -8,6 +8,7 @@ with pkgs;
   discord
   enpass
   evince
+  imv
   gamescope
   mpv
   nautilus
