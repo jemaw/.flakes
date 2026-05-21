@@ -16,15 +16,17 @@ with pkgs;
   signal-desktop
 
   # misc
+  beautysh
   bubblewrap
-  socat
+  gcc
   hyprpicker
   nil
   nixpkgs-fmt
   nixfmt
-  wget
-  beautysh
+  usbutils
   shellcheck
+  socat
+  wget
   # unclutter  # broken on unstable
   zsh-completions
 
@@ -34,7 +36,10 @@ with pkgs;
 
   # languages
   bash-language-server
+  nodejs
   pipx
+  pnpm
+  nasm
   ruff
   rustup
   taplo
