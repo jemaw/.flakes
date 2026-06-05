@@ -5,11 +5,14 @@ in
 with pkgs;
 [
   # apps
+  brave
   discord
   enpass
   evince
+  firefox
   imv
   gamescope
+  ladybird
   mpv
   nautilus
   obsidian

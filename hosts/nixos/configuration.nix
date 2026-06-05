@@ -108,20 +108,12 @@
   # isn't in the kernel's USB_QUIRK_RESET_RESUME table, so after suspend the
   # device clock desyncs with PipeWire, causing pitch-shifted/distorted audio.
   # Unbinding and rebinding after resume forces a clean re-enumeration.
-  systemd.services."usb-audio-resume" = {
-    description = "Rebind SAVITECH LPe headphone amp after resume";
-    wantedBy = [ "post-suspend.target" ];
-    after = [ "post-suspend.target" ];
-    serviceConfig = {
-      Type = "oneshot";
-      ExecStart = pkgs.writeShellScript "rebind-savitech" ''
-        dev=$(grep -rl "262a" /sys/bus/usb/devices/*/idVendor 2>/dev/null | head -1 | xargs dirname | xargs basename)
-        echo -n "$dev" > /sys/bus/usb/drivers/usb/unbind
-        sleep 0.5
-        echo -n "$dev" > /sys/bus/usb/drivers/usb/bind
-      '';
-    };
-  };
+  powerManagement.resumeCommands = ''
+    dev=$(grep -rl "262a" /sys/bus/usb/devices/*/idVendor 2>/dev/null | head -1 | xargs dirname | xargs basename)
+    echo -n "$dev" > /sys/bus/usb/drivers/usb/unbind
+    sleep 0.5
+    echo -n "$dev" > /sys/bus/usb/drivers/usb/bind
+  '';
 
   environment.systemPackages = with pkgs; [
     # wayland desktop
