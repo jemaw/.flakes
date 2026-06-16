@@ -64,6 +64,8 @@
   programs.niri.enable = true;
   programs.nix-ld.enable = true;
 
+  virtualisation.docker.enable = true;
+
   users.users.jean = {
     isNormalUser = true;
     shell = pkgs.fish;
@@ -72,6 +74,7 @@
       "networkmanager"
       "video"
       "audio"
+      "docker"
     ];
   };
 
@@ -80,6 +83,12 @@
     "nix-command"
     "flakes"
   ];
+  nix.settings.auto-optimise-store = true;
+  nix.gc = {
+    automatic = true;
+    dates = "weekly";
+    options = "--delete-older-than 30d";
+  };
 
   programs = {
     bash.enable = true;
