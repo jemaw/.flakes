@@ -14,6 +14,7 @@ let
 
   settings = {
     sandbox.enabled = true;
+    permissions.defaultMode = "auto";
     spinnerVerbs = {
       mode = "replace";
       verbs = [ "" ];

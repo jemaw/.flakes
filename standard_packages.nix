@@ -60,7 +60,6 @@ with pkgs;
   ncdu
   nix-output-monitor
   ripgrep
-  silver-searcher
   scrot
   xclip
   ffmpeg_6

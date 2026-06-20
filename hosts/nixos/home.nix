@@ -4,5 +4,5 @@
 {
   imports = [ ../../home.nix ];
 
-  programs.noctalia-shell.enable = true;
+  programs.noctalia.enable = true;
 }
