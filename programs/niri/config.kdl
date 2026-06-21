@@ -94,8 +94,7 @@ layout {
 // notifications
 // spawn-at-startup "mako"
 // spawn-sh-at-startup "swaybg -i /home/jean/Pictures/wallpapers/fog.png"
-spawn-sh-at-startup "qs -c noctalia-shell"
-spawn-sh-at-startup "noctalia-shell"
+spawn-sh-at-startup "noctalia"
 
 // Uncomment this line to ask the clients to omit their client-side decorations if possible.
 // If the client will specifically ask for CSD, the request will be honored.

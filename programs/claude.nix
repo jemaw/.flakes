@@ -19,6 +19,10 @@ let
       mode = "replace";
       verbs = [ "" ];
     };
+    statusLine = {
+      type = "command";
+      command = "${pkgs.bash}/bin/bash ${./claude/statusline.sh}";
+    };
   };
 
   settingsFile = (pkgs.formats.json { }).generate "claude-settings.json" settings;
