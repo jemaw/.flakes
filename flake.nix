@@ -91,14 +91,20 @@
           ./hosts/nixos/configuration.nix
           home-manager.nixosModules.home-manager
           {
-            nixpkgs.overlays = [ llm-agents.overlays.default tracey-flake.overlays.default ];
+            nixpkgs.overlays = [
+              llm-agents.overlays.default
+              tracey-flake.overlays.default
+            ];
             home-manager.useUserPackages = true;
             home-manager.backupFileExtension = "bak";
             home-manager.sharedModules = [
               noctalia-shell.homeModules.default
               {
                 home.enableNixpkgsReleaseCheck = false;
-                nixpkgs.overlays = [ llm-agents.overlays.default tracey-flake.overlays.default ];
+                nixpkgs.overlays = [
+                  llm-agents.overlays.default
+                  tracey-flake.overlays.default
+                ];
                 nixpkgs.config.allowUnfreePredicate = pkg: builtins.elem (nixpkgs.lib.getName pkg) unfreePackages;
               }
             ]
