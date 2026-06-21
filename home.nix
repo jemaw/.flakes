@@ -14,6 +14,7 @@ in
   home.packages = (standard_packages pkgs) ++ [
     pkgs.llm-agents.claude-code
     pkgs.llm-agents.pi
+    pkgs.tracey
   ];
 
   home.sessionVariables = {

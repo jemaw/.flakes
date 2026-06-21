@@ -21,6 +21,9 @@
     llm-agents = {
       url = "github:numtide/llm-agents.nix";
     };
+    tracey-flake = {
+      url = "git+ssh://git@github.com/jemaw/tracey-flake";
+    };
   };
 
   outputs =
@@ -31,13 +34,17 @@
       nixvim-config,
       noctalia-shell,
       llm-agents,
+      tracey-flake,
       ...
     }:
     let
       system = "x86_64-linux";
       pkgs = import nixpkgs {
         inherit system;
-        overlays = [ llm-agents.overlays.default ];
+        overlays = [
+          llm-agents.overlays.default
+          tracey-flake.overlays.default
+        ];
       };
       nixvimModules = [
         nixvim.homeModules.nixvim
@@ -84,14 +91,14 @@
           ./hosts/nixos/configuration.nix
           home-manager.nixosModules.home-manager
           {
-            nixpkgs.overlays = [ llm-agents.overlays.default ];
+            nixpkgs.overlays = [ llm-agents.overlays.default tracey-flake.overlays.default ];
             home-manager.useUserPackages = true;
             home-manager.backupFileExtension = "bak";
             home-manager.sharedModules = [
               noctalia-shell.homeModules.default
               {
                 home.enableNixpkgsReleaseCheck = false;
-                nixpkgs.overlays = [ llm-agents.overlays.default ];
+                nixpkgs.overlays = [ llm-agents.overlays.default tracey-flake.overlays.default ];
                 nixpkgs.config.allowUnfreePredicate = pkg: builtins.elem (nixpkgs.lib.getName pkg) unfreePackages;
               }
             ]
