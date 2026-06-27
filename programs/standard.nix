@@ -103,12 +103,34 @@ in
         config = wezterm.config_builder()
         local mux = wezterm.mux
         local act = wezterm.action
+
+        local DARK = "Default Dark (base16)"
+        local LIGHT = "Papercolor Light (Gogh)"
+
+        wezterm.on('toggle-theme', function(window, pane)
+          local overrides = window:get_config_overrides() or {}
+          if (overrides.color_scheme or DARK) == DARK then
+            overrides.color_scheme = LIGHT
+          else
+            overrides.color_scheme = DARK
+          end
+          window:set_config_overrides(overrides)
+        end)
+
         config.hide_tab_bar_if_only_one_tab = true
         config.tab_bar_at_bottom = true
         config.use_fancy_tab_bar = false
         config.enable_kitty_keyboard = true
         config.enable_wayland = true
-        config.color_scheme = "zenbones_dark"
+        config.color_scheme = DARK
+
+        config.keys = {
+          {
+            key = 'D',
+            mods = 'CTRL|SHIFT',
+            action = act.EmitEvent 'toggle-theme',
+          },
+        }
 
         return config
       '';

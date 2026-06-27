@@ -52,6 +52,8 @@ with pkgs;
   zig
 
   # cli tools
+  wl-clipboard
+  herdr
   dust
   btop
   cowsay

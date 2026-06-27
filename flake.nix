@@ -24,6 +24,9 @@
     tracey-flake = {
       url = "git+ssh://git@github.com/jemaw/tracey-flake";
     };
+    herdr-flake = {
+      url = "github:ogulcancelik/herdr";
+    };
   };
 
   outputs =
@@ -35,6 +38,7 @@
       noctalia-shell,
       llm-agents,
       tracey-flake,
+      herdr-flake,
       ...
     }:
     let
@@ -44,6 +48,7 @@
         overlays = [
           llm-agents.overlays.default
           tracey-flake.overlays.default
+          herdr-flake.overlays.default
         ];
       };
       nixvimModules = [
@@ -94,6 +99,7 @@
             nixpkgs.overlays = [
               llm-agents.overlays.default
               tracey-flake.overlays.default
+              herdr-flake.overlays.default
             ];
             home-manager.useUserPackages = true;
             home-manager.backupFileExtension = "bak";
@@ -104,6 +110,7 @@
                 nixpkgs.overlays = [
                   llm-agents.overlays.default
                   tracey-flake.overlays.default
+                  herdr-flake.overlays.default
                 ];
                 nixpkgs.config.allowUnfreePredicate = pkg: builtins.elem (nixpkgs.lib.getName pkg) unfreePackages;
               }
