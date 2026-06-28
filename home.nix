@@ -43,6 +43,7 @@ in
     ./programs/ghostty.nix
     ./programs/zsh.nix
     ./programs/claude.nix
+    ./programs/herdr.nix
   ];
 
   xdg.mimeApps = {

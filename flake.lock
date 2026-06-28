@@ -304,11 +304,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1782252850,
-        "narHash": "sha256-nzQHrHu7P4m8IXETvsuk/CFsMh4aKwOOhEs07GLHZ6M=",
+        "lastModified": 1782647650,
+        "narHash": "sha256-/UM+UtDAVNhrs0iyqXhWPgIC6yiMqG34pai6FZcHTZ4=",
         "owner": "jemaw",
         "repo": "nixvim-config",
-        "rev": "177e36b20c5daa518f5b6cf39907cddfcd659582",
+        "rev": "2adc137db6fa31c743cd208e0f8023afbbd37922",
         "type": "github"
       },
       "original": {
